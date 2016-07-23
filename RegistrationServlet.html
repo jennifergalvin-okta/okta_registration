@@ -1,0 +1,78 @@
+<head>
+<meta name="robots" content="noarchive"><meta name="googlebot" content="noarchive"><meta name="robots" content="noindex">
+  <!-- Core widget js and css -->
+</head>
+<body>
+
+<style>
+p    {
+	color: black;
+    	font-family: courier;
+    	font-size: 100%; 
+</style>
+
+<script>
+function submitAnswers() 
+{
+   var totalQuestions = 2;
+   correctAnswers = 0;
+
+   questions = document.getElementById("test");
+
+   for (i = 0; i < questions.length; i++)
+   {
+
+   	currentQuestion = questions.elements[i];
+	if (currentQuestion.checked)
+	{
+   		if( currentQuestion.value == "true") 
+			{  correctAnswers++; }
+	}
+
+   }
+
+
+   if ( correctAnswers !== totalQuestions )
+   	{ window.location.href = "failedTest.html"; }
+   else
+      	{ window.location.href= "success.html";	}
+
+  
+}
+
+</script>
+
+<div id=logo>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Experian.svg/1024px-Experian.svg.png" style="width:40%">
+</div>
+
+  <div id="testContainer">
+
+	<form id="test">
+
+	<p>Let's verify your identity:<p>
+
+
+	<p>
+	Which street have you lived on previously?<p>
+	&nbsp;&nbsp;&nbsp;<input name="q1" type="radio" value="false">Cotton Lane</input><p>
+	&nbsp;&nbsp;&nbsp;<input name="q1" type="radio" value="false">Strawberry Ct</input><p>
+	&nbsp;&nbsp;&nbsp;<input name="q1" type="radio" value="true">Silver Lane</input><p>
+	&nbsp;&nbsp;&nbsp;<input name="q1" type="radio" value="false">None of these</input><p>
+	<p>
+
+        <p>
+        What type of loan did you most recently acquire?<p>
+        &nbsp;&nbsp;&nbsp;<input name="q2" type="radio" value="false">Auto</input><p>
+        &nbsp;&nbsp;&nbsp;<input name="q2" type="radio" value="false">Home Equity</input><p>
+        &nbsp;&nbsp;&nbsp;<input name="q2" type="radio" value="true">Credit Card</input><p>
+        &nbsp;&nbsp;&nbsp;<input name="q2" type="radio" value="false">None of these</input><p>
+        <p>
+
+	<input onclick="submitAnswers()" name="submit" type="button" value="Submit Answers" />
+	</form>
+
+
+  </div>
+</body>
+
